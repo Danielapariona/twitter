@@ -10,7 +10,7 @@ html, body {
 
 body {
   font: 14px 'Open Sans', sans-serif;
-  background: #eee;
+  background: rgb(216, 216, 216);
 
 }
 
@@ -116,4 +116,16 @@ section.content-tweets {
 
 section.content-tweets div:first-child {
   margin-top: 45px;
+}
+
+.red {
+  color: red;
+}
+
+.twitterBlue {
+  color: #1da1f2;
+}
+
+.background-red {
+  background-color: #ffb8c2;
 }
