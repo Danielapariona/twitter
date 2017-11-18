@@ -129,3 +129,8 @@ section.content-tweets div:first-child {
 .background-red {
   background-color: #ffb8c2;
 }
+
+.buttonDisabled {
+  background-color: rgb(214, 214, 214);
+  color: rgb(182, 182, 182);
+}

@@ -7,9 +7,21 @@ function stateLetter(countLetter) {
   var minimumLetter = 10;
   if(countLetter <= 10 && countLetter >= 0) {
     count.className = "red";
+    console.log('red');
+  } else if(countLetter > 10) {
+    count.className = "twitterBlue";
+    console.log('twitter');  
   } else if(countLetter < 0) {
-    count.className = "twitterBlue background-red";
-  } 
+    count.classList.add('background-red');
+  }
+}
+
+var buttonEnable = function() {
+  if((area.value).trim() !== "") {
+    button.classList.remove('buttonDisabled');
+  } else if((area.value).trim() == "") {
+    button.classList.add('buttonDisabled');
+  }
 }
 
 var countLetters = function() {
@@ -18,6 +30,7 @@ var countLetters = function() {
   var currentLetter = maxLetter - ((area.value).trim()).length;
   count.textContent = currentLetter;
   stateLetter(count.textContent);
+  buttonEnable();
 }
 
 var showTime = function () {
@@ -48,8 +61,8 @@ function showTweet (event) {
   }
 }
 
-
 window.onload = function() {
+  count.textContent = 140;
   button.addEventListener('click', showTweet);
-  area.addEventListener('keydown', countLetters );
+  area.addEventListener('keyup', countLetters);
 }
