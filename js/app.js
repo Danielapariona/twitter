@@ -4,14 +4,18 @@ var list = document.getElementById('content-tweets');
 var count = document.getElementById('count');
 
 function stateLetter(countLetter) {
-  var minimumLetter = 10;
-  if(countLetter <= 10 && countLetter >= 0) {
+  var mediumLetter = 120;
+  var minimumLetter = 130;
+  var maxLetter = 140;
+
+  if (countLetter > mediumLetter && countLetter < minimumLetter) {
+    console.log('soy mayor de 120 y menor de 130');
+    count.className = "blue";
+  } else if(countLetter > minimumLetter && countLetter < maxLetter) {
     count.className = "red";
-    console.log('red');
-  } else if(countLetter > 10) {
-    count.className = "twitterBlue";
-    console.log('twitter');  
-  } else if(countLetter < 0) {
+  } else if (countLetter > maxLetter) {
+    console.log('soy mayor de 140');
+    button.classList.add('buttonDisabled');
     count.classList.add('background-red');
   }
 }
@@ -27,9 +31,10 @@ var buttonEnable = function() {
 var countLetters = function() {
   count.textContent = 140;
   var maxLetter = 140;
-  var currentLetter = maxLetter - ((area.value).trim()).length;
+  var textLenght = (area.value).trim().length;
+  var currentLetter = maxLetter - textLenght;
   count.textContent = currentLetter;
-  stateLetter(count.textContent);
+  stateLetter(textLenght);
   buttonEnable();
 }
 
