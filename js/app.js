@@ -60,8 +60,9 @@ function showTweet (event) {
 }
 
 var resizeTextArea = function() {
-  var limitRows = 10;
+  var limitRows = 8;
   var rows = parseInt(area.getAttribute("rows"));
+  area.setAttribute("rows", "2");
   if (rows < limitRows && area.scrollHeight > lastScrollHeight) {
     rows++;
   } else if (rows > 2 && area.scrollHeight < lastScrollHeight) {
@@ -73,8 +74,7 @@ var resizeTextArea = function() {
 
 window.onload = function() {
   count.textContent = 140;
+  area.addEventListener('input', resizeTextArea);
   button.addEventListener('click', showTweet);
   area.addEventListener('keyup', countLetters);
-  area.addEventListener('input', resizeTextArea);
 }
-
