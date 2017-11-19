@@ -2,6 +2,7 @@ var area = document.getElementById('insert-text');
 var button = document.getElementById('save');
 var list = document.getElementById('content-tweets');
 var count = document.getElementById('count');
+var lastScrollHeight = area.scrollHeight;
 
 function stateLetter(countLetter) {
   var mediumLetter = 120;
@@ -58,8 +59,22 @@ function showTweet (event) {
   area.focus();
 }
 
+var resizeTextArea = function() {
+  var limitRows = 10;
+  var rows = parseInt(area.getAttribute("rows"));
+  if (rows < limitRows && area.scrollHeight > lastScrollHeight) {
+    rows++;
+  } else if (rows > 2 && area.scrollHeight < lastScrollHeight) {
+    rows--;
+  }
+  lastScrollHeight = area.scrollHeight;
+  area.setAttribute("rows", rows);
+}
+
 window.onload = function() {
   count.textContent = 140;
   button.addEventListener('click', showTweet);
   area.addEventListener('keyup', countLetters);
+  area.addEventListener('input', resizeTextArea);
 }
+

@@ -71,12 +71,10 @@ textarea {
   padding: 15px 0;
   border: none;
   outline: none;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
   box-shadow: none;
-  overflow: hidden;
-  height: auto;
+  margin: 0px;
 }
+
 
 .content-textarea {
   border-bottom: 1px solid #eee;
