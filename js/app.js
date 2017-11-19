@@ -19,38 +19,24 @@ function stateLetter(countLetter) {
   }
 }
 
-var buttonEnable = function(contentArea, count) {
-  if(contentArea !== "") {
-    button.classList.remove('buttonDisabled');
-  } else if(contentArea == "") {
-    button.classList.add('buttonDisabled');
-  };
-
-  if(count < 0) {
-    button.classList.add('buttonDisabled');
-  }
+var buttonEnable = function(count) {
+  count != 140 && count >= 0 ? button.classList.remove('buttonDisabled') : button.classList.add('buttonDisabled');
 }
 
 var countLetters = function() {
   count.textContent = 140;
-  var maxLetter = 140;
   var contentArea= (area.value).trim();
-  var textLenght = contentArea.length;
-  var currentLetter = maxLetter - textLenght;
+  var currentLetter = count.textContent - contentArea.length;
   count.textContent = currentLetter;
-  stateLetter(textLenght);
-  buttonEnable(contentArea, parseInt(count.textContent));
+  stateLetter(contentArea.length);
+  buttonEnable(count.textContent);
 }
 
 var showTime = function () {
   var f = new Date();
   var time = f.getHours() + ":" + f.getMinutes();
   var currentTime = '';
-  if(f.getHours() <= 12) {
-    currentTime = time + ' AM';
-  } else {
-    currentTime = time + ' PM';
-  }
+  f.getHours() <= 12 ? currentTime = time + ' AM' : currentTime = time + ' PM';
   return currentTime;
 }
 
