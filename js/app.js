@@ -54,6 +54,8 @@ function showTweet (event) {
     list.appendChild(div);
     area.value = "";
   }
+  button.classList.add('buttonDisabled');
+  area.focus();
 }
 
 window.onload = function() {
