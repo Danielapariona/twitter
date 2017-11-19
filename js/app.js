@@ -9,21 +9,24 @@ function stateLetter(countLetter) {
   var maxLetter = 140;
 
   if (countLetter > mediumLetter && countLetter < minimumLetter) {
-    console.log('soy mayor de 120 y menor de 130');
     count.className = "blue";
   } else if(countLetter > minimumLetter && countLetter < maxLetter) {
     count.className = "red";
   } else if (countLetter > maxLetter) {
-    console.log('soy mayor de 140');
-    button.classList.add('buttonDisabled');
     count.classList.add('background-red');
+  } else if(countLetter < mediumLetter) {
+    count.className = "twitterBlue";
   }
 }
 
-var buttonEnable = function() {
-  if((area.value).trim() !== "") {
+var buttonEnable = function(contentArea, count) {
+  if(contentArea !== "") {
     button.classList.remove('buttonDisabled');
-  } else if((area.value).trim() == "") {
+  } else if(contentArea == "") {
+    button.classList.add('buttonDisabled');
+  };
+
+  if(count < 0) {
     button.classList.add('buttonDisabled');
   }
 }
@@ -31,11 +34,12 @@ var buttonEnable = function() {
 var countLetters = function() {
   count.textContent = 140;
   var maxLetter = 140;
-  var textLenght = (area.value).trim().length;
+  var contentArea= (area.value).trim();
+  var textLenght = contentArea.length;
   var currentLetter = maxLetter - textLenght;
   count.textContent = currentLetter;
   stateLetter(textLenght);
-  buttonEnable();
+  buttonEnable(contentArea, parseInt(count.textContent));
 }
 
 var showTime = function () {
