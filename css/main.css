@@ -39,6 +39,8 @@ header {
 
 section {
   background-color: #fff;
+  display: inline-block;
+  vertical-align: top;
 }
 
 form {
@@ -107,11 +109,6 @@ textarea {
 
 
 /* Section Card User Profile*/
-.card-user, .content {
-  display: inline-block;
-  vertical-align: top;
-}
-
 .card-user {
   width: 23%;
 }
