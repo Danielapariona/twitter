@@ -45,6 +45,7 @@ function showTweet (event) {
   event.preventDefault()
   if (area.value !== '') {
     var div = document.createElement('div');
+    div.classList.add('border-top');
     var p = document.createElement('p');
     p.textContent = area.value;
     var time = document.createElement('p');
@@ -57,6 +58,7 @@ function showTweet (event) {
   }
   button.classList.add('buttonDisabled');
   area.focus();
+  count.textContent = 140;
 }
 
 var resizeTextArea = function() {
@@ -74,6 +76,7 @@ var resizeTextArea = function() {
 
 window.onload = function() {
   count.textContent = 140;
+  area.focus();
   area.addEventListener('input', resizeTextArea);
   button.addEventListener('click', showTweet);
   area.addEventListener('keyup', countLetters);

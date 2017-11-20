@@ -11,23 +11,49 @@
   </header>
   <main id="main-container">
     <section class="card-user">
-      <h3>Reto de código</h3>
-      <p>Hola,<br>Soy front-end developer Jr.</p>
-      <hr>
-      <p class="text-color">Código</p>
+      <div class="cover-page">
+      </div>
+      <div class="content-data">
+        <div class="content-profile">
+          <figure class="photo-profile">
+            <img src="assets/profile.jpg" alt="">
+          </figure>
+          <div class="profile-name">
+            <h3>Daniela Pariona</h3>
+            <p>@Danielapc21</p>       
+          </div>
+        </div>
+        <div class="profile-data">
+          <div>
+            <h3>Tweets</h3>
+            <p>610</p>
+          </div>
+          <div>
+            <h3>Siguiendo</h3>
+            <p>220</p>
+          </div>
+          <div>
+            <h3>Seguidores</h3>
+            <p>286</p>
+          </div>
+        </div>
+      </div>
     </section>
     <section class="content">
       <form>
         <div class="content-textarea">
-          <textarea type="text" id="insert-text" name="insert-text" placeholder="¿Que está pasando?" rows="2"></textarea>
+          <textarea type="text" id="insert-text" name="insert-text" placeholder="¿Qué está pasando?" rows="2"></textarea>
         </div>
         <div class="content-buttton">
           <button class="button buttonDisabled" id="save">Tweet</button>
           <p id="count" class="twitterBlue"></p>
         </div>
       </form>
+      <section class="content-tweets" id="content-tweets">
+      </section>
     </section>
-    <section class="content-tweets" id="content-tweets">
+    <section class="notice">
+      <p>© 2017 TwitterSobre nosotrosCentro de AyudaCondicionesPolítica de privacidadCookiesInformación sobre anunciosMarcaBlogEstadoAplicacionesEmpleo</p>
     </section>
   </main>
   <script src="js/app.js"></script>
